@@ -96,7 +96,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="inner-content">
-						<p>Copyright © 2024 NetConfigGenerator</p>
+						<p>Copyright © 2025 NetConfigGenerator <br> Built By Tusharan</p>
 					</div>
 				</div>
 			</div>

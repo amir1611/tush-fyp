@@ -589,7 +589,12 @@ footer .inner-content {
 } */
 
 footer .inner-content p {
-	text-transform: uppercase;
+
+	color: #fff;
+	font-style: sans-serif;
+	font-weight: 300;
+	margin-top: 20px;
+	font-size: 15px;
 }
 
 footer .inner-content p a {
