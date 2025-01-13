@@ -1,0 +1,479 @@
+.generator-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.generator-content {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.generator-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.generator-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.generator-table th {
+    background: #f5f5f5;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+.generator-table td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.generator-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.generator-actions {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.generator-actions button,
+.generator-actions input[type="submit"] {
+    background: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+}
+
+.generator-actions button:hover,
+.generator-actions input[type="submit"]:hover {
+    background: #45a049;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .generator-container {
+        padding: 10px;
+    }
+    
+    .generator-content {
+        padding: 15px;
+    }
+    
+    .generator-table {
+        font-size: 14px;
+    }
+    
+    .generator-actions button,
+    .generator-actions input[type="submit"] {
+        width: 100%;
+        margin: 10px 0;
+    }
+} 
+
+/* Tab Navigation */
+.tab-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    padding: 10px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+/* Tab styling */
+.tabbertab {
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 0 4px 4px 4px;
+}
+
+/* Ports tab specific styling */
+.tabbertab .xl {
+    width: 100%;
+    max-width: 100%;
+    border-collapse: collapse;
+    margin: 19px 0;
+    font-size: 15px;
+}
+
+/* Table header styling */
+.tabbertab .xl tr:first-child {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    height: 50px;
+}
+
+.tabbertab .xl td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+/* Table container for scrolling */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    padding: 0;
+}
+
+/* Adjust table widths for different sections */
+.tabbertab:has(h2:contains("Ports")) .table-wrapper {
+    max-width: 100%;
+}
+
+.tabbertab:has(h2:contains("Vlans")) .table-wrapper,
+.tabbertab:has(h2:contains("VRRP")) .table-wrapper {
+    max-width: 90%;
+    margin: 20px auto;
+}
+
+/* Column widths for VLANs table */
+.tabbertab:has(h2:contains("Vlans")) .xl td:nth-child(1) { /* VLAN # */
+    width: 30%;
+    text-align: left;
+}
+
+.tabbertab:has(h2:contains("Vlans")) .xl td:nth-child(2) { /* Name */
+    width: 30%;
+    text-align: left;
+}
+
+.tabbertab:has(h2:contains("Vlans")) .xl td:nth-child(3) { /* IP address */
+    width: 30%;
+    text-align: left;
+}
+
+.tabbertab:has(h2:contains("Vlans")) .xl td:nth-child(4) { /* Subnet Mask */
+    width: 35%;
+    text-align: left;
+}
+
+/* Additional styling for VLAN table */
+.tabbertab:has(h2:contains("Vlans")) .xl {
+    width: auto;
+    margin: 19px 0;
+}
+
+.tabbertab:has(h2:contains("Vlans")) .table-wrapper {
+    max-width: 95%;
+    margin: 20px auto;
+}
+
+/* Adjust textarea widths for VLAN table */
+.tabbertab:has(h2:contains("Vlans")) .xl textarea {
+    width: 95%;
+    min-width: unset;
+    text-align: left;
+    padding-left: 8px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Column widths for VRRP/HSRP table */
+.tabbertab:has(h2:contains("VRRP")) .xl td {
+    width: auto;
+}
+
+/* Auto-growing textarea styling */
+.tabbertab .xl textarea {
+    width: 95%;
+    max-width: 100%;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    resize: none;
+    min-height: 28px;
+    font-size: 13px;
+    text-align: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: height 0.1s ease;
+}
+
+/* Add JavaScript for auto-growing textareas */
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const textareas = document.querySelectorAll('.xl textarea');
+        
+        function autoGrow(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+        }
+        
+        textareas.forEach(textarea => {
+            // Initial size adjustment
+            autoGrow(textarea);
+            
+            // Add event listeners for input changes
+            textarea.addEventListener('input', function() {
+                autoGrow(this);
+            });
+            
+            textarea.addEventListener('focus', function() {
+                autoGrow(this);
+            });
+        });
+    });
+</script>
+
+/* Ports configuration options */
+.tabbertab .ports-config {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 4px;
+}
+
+.tabbertab .ports-config select {
+    margin-left: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.tabbertab .ports-info {
+    color: #666;
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+/* General tab styling */
+.tabbertab table {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.tabbertab table td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+.tabbertab table td:first-child {
+    width: 30%;
+    text-align: right;
+    font-weight: 500;
+}
+
+.tabbertab table td:last-child {
+    width: 70%;
+}
+
+.tabbertab table input[type="text"],
+.tabbertab table select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.tabbertab table select {
+    background-color: white;
+}
+
+/* Center align the content in General tab */
+.tabbertab p {
+    text-align: center;
+}
+
+/* Hide tabber navigation */
+.tabbernav {
+    display: none !important;
+}
+
+/* Ensure tabber is visible */
+.tabber {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.nav-button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.nav-button:hover {
+    background: #45a049;
+}
+
+.nav-button:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+#currentSection {
+    font-weight: bold;
+    color: #333;
+} 
+
+/* Ports table specific column widths */
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(1) { /* Interface Name */
+    width: 120px;
+}
+
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(2) { /* Description */
+    width: 150px;
+}
+
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(3), /* Speed */
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(4) { /* Duplex */
+    width: 100px;
+}
+
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(5), /* VLANs */
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(6), /* Tagging */
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(7), /* Native VLAN */
+.tabbertab:has(h2:contains("Ports")) .xl td:nth-child(8) { /* STP Mode */
+    width: 110px;
+} 
+
+/* VLAN table header alignment */
+.tabbertab:has(h2:contains("Vlans")) .xl tr:first-child td {
+    text-align: center;
+    font-weight: bold;
+} 
+
+/* VLAN table cell padding */
+.tabbertab:has(h2:contains("Vlans")) .xl td {
+    padding: 6px 8px;
+    height: 36px;
+} 
+
+/* Welcome Section */
+.welcome-section {
+    padding: 40px 20px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.welcome-section h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.welcome-section p {
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 15px;
+}
+
+/* Features Section */
+.features-section {
+    padding: 40px 20px;
+    margin-bottom: 30px;
+}
+
+.features-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.feature-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.feature-card h3 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Getting Started Section */
+.getting-started-section {
+    padding: 40px 20px;
+    background: #f8f9fa;
+    margin-bottom: 30px;
+}
+
+.getting-started-section h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 20px;
+}
+
+.step-number {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.step p {
+    color: #555;
+    line-height: 1.5;
+} 
