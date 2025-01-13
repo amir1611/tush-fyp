@@ -12,17 +12,16 @@
 
 	<title>NetConfig Generator</title>
 
-	<!-- Bootstrap core CSS -->
+	
 	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	<!-- Additional CSS Files -->
 	<link rel="stylesheet" href="assets/css/fontawesome.css">
 	<link rel="stylesheet" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/css/owl.css">
 </head>
 
 <body>
-	<!-- ***** Preloader Start ***** -->
+
 	<div id="preloader">
 		<div class="jumper">
 			<div></div>
@@ -30,9 +29,9 @@
 			<div></div>
 		</div>
 	</div>
-	<!-- ***** Preloader End ***** -->
+	
 
-	<!-- Header -->
+
 	<header>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container">
@@ -63,10 +62,10 @@
 		</nav>
 	</header>
 
-	<!-- Page Content -->
+
 	<div class="container">
 		<?php
-		// Check if 'page' parameter is set in the URL
+
 		if (isset($_GET['page'])) {
 			$page = $_GET['page'];
 			switch ($page) {
@@ -90,7 +89,7 @@
 		?>
 	</div>
 
-	<!-- Footer -->
+	
 	<footer>
 		<div class="container">
 			<div class="row">
@@ -103,11 +102,11 @@
 		</div>
 	</footer>
 
-	<!-- Bootstrap core JavaScript -->
+
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Additional Scripts -->
+
 	<script src="assets/js/custom.js"></script>
 	<script src="assets/js/owl.js"></script>
 </body>
