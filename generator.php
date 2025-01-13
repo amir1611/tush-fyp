@@ -308,7 +308,6 @@ if ($todo == "load") {
 				<div class="tabbertab">
 					<h2 style="text-align: center;">Vlans</h2>
 					<p>
-
 						<br />
 						<font color=black>Configure VLANs by entering the required details in the fields below.
 							Specify the VLAN ID, name, IP address, and subnet mask for each VLAN.</font><br />
@@ -319,25 +318,25 @@ if ($todo == "load") {
 							<option value="yes" <?php print ($todo == "load") ? (($conf["configure_Vlans"] == "yes") ? "selected" : "") : "selected"; ?>>Yes</option>
 						</select><br />
 					<div class="table-wrapper">
-						<table class="xl">
+						<table class="xl" style="table-layout: auto; width: 100%;">
 							<tr align=center>
-								<td>#</td>
+								<td style="text-align: center;">#</td>
 								<td>Name</td>
 								<td>Ip address</td>
 								<td>Subnet Mask</td>
 							</tr>
 							<?php
 							for ($loop = 1; $loop < 11; $loop++) {
-								print "<td><textarea COLS=5  ROWS=1 WRAP=OFF name=v" . $loop . "_0 class='xl' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,0)\">" . (($todo == "load") ? $conf["v" . $loop . "_0"] : $loop) . "</TEXTAREA></td>
-									<td><textarea COLS=15 ROWS=1 WRAP=OFF name=v" . $loop . "_1 class='xl' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,1)\">" . (($todo == "load") ? $conf["v" . $loop . "_1"] : "") . "</TEXTAREA></td>
-									<td><textarea COLS=15 ROWS=1 WRAP=OFF name=v" . $loop . "_2 class='xl' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,2)\">" . (($todo == "load") ? $conf["v" . $loop . "_2"] : "") . "</TEXTAREA></td>
-									<td><textarea COLS=15 ROWS=1 WRAP=OFF name=v" . $loop . "_3 class='xl' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,3)\">" . (($todo == "load") ? $conf["v" . $loop . "_3"] : "") . "</TEXTAREA></td>
+								print "<tr>
+									<td style='text-align: center;'><textarea COLS=5 ROWS=1 WRAP=OFF name=v" . $loop . "_0 class='xl' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,0)\">" . (($todo == "load") ? $conf["v" . $loop . "_0"] : $loop) . "</TEXTAREA></td>
+									<td><textarea COLS=20 ROWS=1 WRAP=OFF name=v" . $loop . "_1 class='xl' style='min-width: 150px;' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,1)\">" . (($todo == "load") ? $conf["v" . $loop . "_1"] : "") . "</TEXTAREA></td>
+									<td><textarea COLS=20 ROWS=1 WRAP=OFF name=v" . $loop . "_2 class='xl' style='min-width: 120px;' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,2)\">" . (($todo == "load") ? $conf["v" . $loop . "_2"] : "") . "</TEXTAREA></td>
+									<td><textarea COLS=20 ROWS=1 WRAP=OFF name=v" . $loop . "_3 class='xl' style='min-width: 120px;' oncontextmenu=\"return false;\" onmousedown=\"MouseDown(this,'v');\" onkeyup=\"formatCells(this.value,'v',$loop,3)\">" . (($todo == "load") ? $conf["v" . $loop . "_3"] : "") . "</TEXTAREA></td>
 									</tr>";
 							}
 							?>
 						</table>
 					</div>
-
 					</p>
 				</div>
 				<div class="tabbertab">
