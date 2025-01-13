@@ -578,13 +578,15 @@ header .navbar {
 
 footer {
 	text-align: center;
+	background-color: #232323;
+	height: 80px;
 }
-
+/* 
 footer .inner-content {
 	border-top: 1px solid #eee;
 	margin-top: 60px;
 	padding: 60px 0px;
-}
+} */
 
 footer .inner-content p {
 	text-transform: uppercase;
